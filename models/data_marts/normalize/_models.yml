@@ -5,9 +5,6 @@ models:
   - name: normalize__all_unmapped
     description: all unmapped codes
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_normalize
-        {% else %}normalize{%- endif -%}
       alias: all_unmapped
       tags: normalized
       materialized: table
@@ -15,9 +12,6 @@ models:
   - name: normalize__all_codes
     description: all codes
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_normalize
-        {% else %}normalize{%- endif -%}
       alias: all_codes
       tags: normalized
       materialized: view
@@ -25,9 +19,6 @@ models:
   - name: normalize__unmapped_appointment
     description: unmapped appointment codes
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_normalize
-        {% else %}normalize{%- endif -%}
       alias: unmapped_appointment
       tags: normalized
       materialized: table
@@ -35,9 +26,6 @@ models:
   - name: normalize__unmapped_condition
     description: unmapped condition codes
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_normalize
-        {% else %}normalize{%- endif -%}
       alias: unmapped_condition
       tags: normalized
       materialized: table
@@ -45,9 +33,6 @@ models:
   - name: normalize__unmapped_immunization
     description: unmapped immunization codes
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_normalize
-        {% else %}normalize{%- endif -%}
       alias: unmapped_immunization
       tags: normalize
       materialized: table
@@ -55,9 +40,6 @@ models:
   - name: normalize__unmapped_lab_result
     description: unmapped lab result order and component codes
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_normalize
-        {% else %}normalize{%- endif -%}
       alias: unmapped_lab_result
       tags: normalized
       materialized: table
@@ -65,9 +47,6 @@ models:
   - name: normalize__unmapped_medication
     description: unmapped medication codes
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_normalize
-        {% else %}normalize{%- endif -%}
       alias: unmapped_medication
       tags: normalized
       materialized: table
@@ -75,9 +54,6 @@ models:
   - name: normalize__unmapped_observation
     description: unmapped observation codes
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_normalize
-        {% else %}normalize{%- endif -%}
       alias: unmapped_observation
       tags: normalized
       materialized: table
@@ -85,9 +61,6 @@ models:
   - name: normalize__unmapped_procedure
     description: unmapped procedure codes
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_normalize
-        {% else %}normalize{%- endif -%}
       alias: unmapped_procedure
       tags: normalized
       materialized: table

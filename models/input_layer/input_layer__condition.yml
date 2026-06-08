@@ -4,7 +4,6 @@ models:
     description: "The condition table contains information related to medical conditions \npatients have been officially diagnosed with or are suspected of having\ne.g. they may have symptoms indicative of the condition.  This includes \nproblems, admitting diagnosis codes, and billable diagnoses.\n"
     mapping_instructions: ''
     config:
-      schema: "{%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_input_layer{% else %}input_layer{%- endif -%}\n"
       tags: input_layer
       materialized: view
     columns:

@@ -4,9 +4,6 @@ models:
 ## Final
   - name: readmissions__encounter_augmented
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_readmissions
-        {% else %}readmissions{%- endif -%}
       alias: encounter_augmented
       tags: readmissions
       materialized: table
@@ -104,9 +101,6 @@ models:
 
   - name: readmissions__readmission_summary
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_readmissions
-        {% else %}readmissions{%- endif -%}
       alias: readmission_summary
       tags: readmissions
       materialized: table
@@ -234,9 +228,6 @@ models:
 ##### Intermediate
   - name: readmissions__encounter_data_quality
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_readmissions
-        {% else %}readmissions{%- endif -%}
       alias: _int_encounter_data_quality
       tags: readmissions
       materialized: view
@@ -271,9 +262,6 @@ models:
 
   - name: readmissions__encounter_overlap
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_readmissions
-        {% else %}readmissions{%- endif -%}
       alias: _int_encounter_overlap
       tags: readmissions
       materialized: view
@@ -288,9 +276,6 @@ models:
 
   - name: readmissions__encounter_specialty_cohort
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_readmissions
-        {% else %}readmissions{%- endif -%}
       alias: _int_encounter_specialty_cohort
       tags: readmissions
       materialized: view
@@ -303,18 +288,12 @@ models:
 
   - name: readmissions__encounter_with_ccs
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_readmissions
-        {% else %}readmissions{%- endif -%}
       alias: _int_encounter_with_ccs
       tags: readmissions
       materialized: view
 
   - name: readmissions__exclusion
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_readmissions
-        {% else %}readmissions{%- endif -%}
       alias: _int_exclusion
       tags: readmissions
       materialized: view
@@ -325,9 +304,6 @@ models:
 
   - name: readmissions__index_admission
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_readmissions
-        {% else %}readmissions{%- endif -%}
       alias: _int_index_admission
       tags: readmissions
       materialized: view
@@ -338,9 +314,6 @@ models:
 
   - name: readmissions__index_discharge_requirement
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_readmissions
-        {% else %}readmissions{%- endif -%}
       alias: _int_index_discharge_requirement
       tags: readmissions
       materialized: view
@@ -351,9 +324,6 @@ models:
 
   - name: readmissions__index_time_requirement
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_readmissions
-        {% else %}readmissions{%- endif -%}
       alias: _int_index_time_requirement
       tags: readmissions
       materialized: view
@@ -364,9 +334,6 @@ models:
 
   - name: readmissions__planned_encounter
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_readmissions
-        {% else %}readmissions{%- endif -%}
       alias: _int_planned_encounter
       tags: readmissions
       materialized: view
@@ -377,9 +344,6 @@ models:
 
   - name: readmissions__procedure_ccs
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_readmissions
-        {% else %}readmissions{%- endif -%}
       alias: _int_procedure_ccs
       tags: readmissions
       materialized: view
@@ -396,9 +360,6 @@ models:
 
   - name: readmissions__readmission_crude
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_readmissions
-        {% else %}readmissions{%- endif -%}
       alias: _int_readmission_crude
       tags: readmissions
       materialized: view
@@ -420,9 +381,6 @@ models:
 
   - name: readmissions__encounter
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_readmissions
-        {% else %}readmissions{%- endif -%}
       alias: _int_encounter
       tags: readmissions
       materialized: view

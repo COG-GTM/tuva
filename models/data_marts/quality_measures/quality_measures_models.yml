@@ -4,8 +4,6 @@ models:
 ## Final
   - name: quality_measures__summary_counts
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: summary_counts
       tags: quality_measures
       materialized: table
@@ -47,8 +45,6 @@ models:
 
   - name: quality_measures__summary_long
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: summary_long
       tags: quality_measures
       materialized: table
@@ -119,8 +115,6 @@ models:
 
   - name: quality_measures__summary_wide
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: summary_wide
       tags: quality_measures
       materialized: table
@@ -160,8 +154,6 @@ models:
 ## Shared Exclusions
   - name: quality_measures__int_shared_exclusions_frailty
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_shared_exclusions_frailty
       tags: quality_measures
       materialized: table
@@ -170,8 +162,6 @@ models:
 
   - name: quality_measures__int_shared_exclusions_advanced_illness
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_shared_exclusions_advanced_illness
       tags: quality_measures
       materialized: table
@@ -180,8 +170,6 @@ models:
 
   - name: quality_measures__int_shared_exclusions_dementia
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_shared_exclusions_dementia
       tags: quality_measures
       materialized: table
@@ -190,8 +178,6 @@ models:
 
   - name: quality_measures__int_shared_exclusions_hospice_palliative
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_shared_exclusions_hospice_palliative
       tags: quality_measures
       materialized: table
@@ -200,8 +186,6 @@ models:
 
   - name: quality_measures__int_shared_exclusions_institutional_snp
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_shared_exclusions_institutional_snp
       tags: quality_measures
       materialized: table
@@ -213,8 +197,6 @@ models:
 ### Statin Therapy for the Prevention and Treatment of Cardiovascular Disease
   - name: quality_measures__int_cqm438__performance_period
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_cqm438__performance_period
       tags: quality_measures
       materialized: view
@@ -223,8 +205,6 @@ models:
 
   - name: quality_measures__int_cqm438_denominator_criteria1
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_cqm438_denominator_criteria1
       tags: quality_measures
       materialized: table
@@ -248,8 +228,6 @@ models:
 
   - name: quality_measures__int_cqm438_denominator_criteria2
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_cqm438_denominator_criteria2
       tags: quality_measures
       materialized: table
@@ -273,8 +251,6 @@ models:
 
   - name: quality_measures__int_cqm438_denominator_criteria3
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_cqm438_denominator_criteria3
       tags: quality_measures
       materialized: table
@@ -298,8 +274,6 @@ models:
 
   - name: quality_measures__int_cqm438_denominator
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_cqm438_denominator
       tags: quality_measures
       materialized: table
@@ -328,8 +302,6 @@ models:
 
   - name: quality_measures__int_cqm438_exclusions
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_cqm438_exclusions
       tags: quality_measures
       materialized: table
@@ -352,8 +324,6 @@ models:
 
   - name: quality_measures__int_cqm438_long
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_cqm438_long
       tags: quality_measures
       materialized: table
@@ -398,8 +368,6 @@ models:
 
   - name: quality_measures__int_cqm438_numerator
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_cqm438_numerator
       tags: quality_measures
       materialized: table
@@ -433,8 +401,6 @@ models:
 ### Documentation of Current Medications in the Medical Record
   - name: quality_measures__int_cqm130__performance_period
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_cqm130__performance_period
       tags: quality_measures
       materialized: view
@@ -443,8 +409,6 @@ models:
 
   - name: quality_measures__int_cqm130_denominator
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_cqm130_denominator
       tags: quality_measures
       materialized: table
@@ -477,8 +441,6 @@ models:
 
   - name: quality_measures__int_cqm130_exclusions
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_cqm130_exclusions
       tags: quality_measures
       materialized: table
@@ -501,8 +463,6 @@ models:
 
   - name: quality_measures__int_cqm130_long
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_cqm130_long
       tags: quality_measures
       materialized: table
@@ -547,8 +507,6 @@ models:
 
   - name: quality_measures__int_cqm130_numerator
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_cqm130_numerator
       tags: quality_measures
       materialized: table
@@ -582,8 +540,6 @@ models:
 ### Pain Assessment and Follow-Up
   - name: quality_measures__int_nqf0420__performance_period
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_nqf0420__performance_period
       tags: quality_measures
       materialized: view
@@ -592,8 +548,6 @@ models:
 
   - name: quality_measures__int_nqf0420_denominator
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_nqf0420_denominator
       tags: quality_measures
       materialized: table
@@ -622,8 +576,6 @@ models:
 
   - name: quality_measures__int_nqf0420_exclusions
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_nqf0420_exclusions
       tags: quality_measures
       materialized: table
@@ -646,8 +598,6 @@ models:
 
   - name: quality_measures__int_nqf0420_long
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_nqf0420_long
       tags: quality_measures
       materialized: table
@@ -692,8 +642,6 @@ models:
 
   - name: quality_measures__int_nqf0420_numerator
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_nqf0420_numerator
       tags: quality_measures
       materialized: table
@@ -727,8 +675,6 @@ models:
 ### Medication Adherence for Diabetes Medications
   - name: quality_measures__int_adh_diabetes__performance_period
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_adh_diabetes__performance_period
       tags: quality_measures
       materialized: view
@@ -737,8 +683,6 @@ models:
 
   - name: quality_measures__int_adh_diabetes_denominator
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_adh_diabetes_denominator
       tags: quality_measures
       materialized: table
@@ -775,8 +719,6 @@ models:
 
   - name: quality_measures__int_adh_diabetes_exclusions
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_adh_diabetes_exclusions
       tags: quality_measures
       materialized: table
@@ -799,8 +741,6 @@ models:
 
   - name: quality_measures__int_adh_diabetes_long
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_adh_diabetes_long
       tags: quality_measures
       materialized: table
@@ -845,8 +785,6 @@ models:
 
   - name: quality_measures__int_adh_diabetes_numerator
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_adh_diabetes_numerator
       tags: quality_measures
       materialized: table
@@ -873,8 +811,6 @@ models:
 ### Medication Adherence for Hypertension
   - name: quality_measures__int_adhras__performance_period
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_adhras__performance_period
       tags: quality_measures
       materialized: view
@@ -883,8 +819,6 @@ models:
 
   - name: quality_measures__int_adhras_denominator
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_adhras_denominator
       tags: quality_measures
       materialized: table
@@ -919,8 +853,6 @@ models:
 
   - name: quality_measures__int_adhras_exclusions
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_adhras_exclusions
       tags: quality_measures
       materialized: table
@@ -943,8 +875,6 @@ models:
 
   - name: quality_measures__int_adhras_long
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_adhras_long
       tags: quality_measures
       materialized: table
@@ -989,8 +919,6 @@ models:
 
   - name: quality_measures__int_adhras_numerator
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_adhras_numerator
       tags: quality_measures
       materialized: table
@@ -1017,8 +945,6 @@ models:
 ### Statin Use in Persons with Diabetes
   - name: quality_measures__int_supd__performance_period
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_supd__performance_period
       tags: quality_measures
       materialized: view
@@ -1027,8 +953,6 @@ models:
 
   - name: quality_measures__int_supd_denominator
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_supd_denominator
       tags: quality_measures
       materialized: table
@@ -1057,8 +981,6 @@ models:
 
   - name: quality_measures__int_supd_exclusions
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_supd_exclusions
       tags: quality_measures
       materialized: table
@@ -1081,8 +1003,6 @@ models:
 
   - name: quality_measures__int_supd_long
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_supd_long
       tags: quality_measures
       materialized: table
@@ -1127,8 +1047,6 @@ models:
 
   - name: quality_measures__int_supd_numerator
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_supd_numerator
       tags: quality_measures
       materialized: table
@@ -1152,8 +1070,6 @@ models:
 ### Medication Adherence for Cholesterol
   - name: quality_measures__int_adh_statins__performance_period
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_adh_statins__performance_period
       tags: quality_measures
       materialized: view
@@ -1162,8 +1078,6 @@ models:
 
   - name: quality_measures__int_adh_statins_denominator
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_adh_statins_denominator
       tags: quality_measures
       materialized: table
@@ -1198,8 +1112,6 @@ models:
 
   - name: quality_measures__int_adh_statins_exclusions
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_adh_statins_exclusions
       tags: quality_measures
       materialized: table
@@ -1222,8 +1134,6 @@ models:
 
   - name: quality_measures__int_adh_statins_long
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_adh_statins_long
       tags: quality_measures
       materialized: table
@@ -1268,8 +1178,6 @@ models:
 
   - name: quality_measures__int_adh_statins_numerator
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _int_adh_statins_numerator
       tags: quality_measures
       materialized: table
@@ -1296,8 +1204,6 @@ models:
 ## Staging
   - name: quality_measures__stg_core__condition
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _stg_condition
       tags: quality_measures
       materialized: view
@@ -1317,8 +1223,6 @@ models:
 
   - name: quality_measures__stg_core__encounter
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _stg_encounter
       tags: quality_measures
       materialized: view
@@ -1337,8 +1241,6 @@ models:
 
   - name: quality_measures__stg_core__medication
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _stg_medication
       tags: quality_measures
       materialized: view
@@ -1359,8 +1261,6 @@ models:
 
   - name: quality_measures__stg_core__observation
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _stg_observation
       tags: quality_measures
       materialized: view
@@ -1381,8 +1281,6 @@ models:
 
   - name: quality_measures__stg_core__patient
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _stg_patient
       tags: quality_measures
       materialized: view
@@ -1413,8 +1311,6 @@ models:
 
   - name: quality_measures__stg_core__procedure
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _stg_procedure
       tags: quality_measures
       materialized: view
@@ -1439,8 +1335,6 @@ models:
 
   - name: quality_measures__stg_medical_claim
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _stg_medical_claim
       tags: quality_measures
       materialized: view
@@ -1461,8 +1355,6 @@ models:
 
   - name: quality_measures__stg_pharmacy_claim
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _stg_pharmacy_claim
       tags: quality_measures
       materialized: view
@@ -1479,8 +1371,6 @@ models:
 
   - name: quality_measures__stg_core__lab_result
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_quality_measures{% else %}quality_measures{%- endif -%}
       alias: _stg_lab_result
       tags: quality_measures
       materialized: view

@@ -4,8 +4,6 @@ models:
 ## Final
   - name: fhir_preprocessing__condition
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: condition
       tags: fhir_preprocessing
       materialized: table
@@ -58,8 +56,6 @@ models:
 
   - name: fhir_preprocessing__coverage
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: coverage
       tags: fhir_preprocessing
       materialized: table
@@ -103,8 +99,6 @@ models:
 
   - name: fhir_preprocessing__explanation_of_benefit
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: explanation_of_benefit
       tags: fhir_preprocessing
       materialized: table
@@ -165,8 +159,6 @@ models:
 
   - name: fhir_preprocessing__medication_dispense
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: medication_dispense
       tags: fhir_preprocessing
       materialized: table
@@ -204,8 +196,6 @@ models:
 
   - name: fhir_preprocessing__observation
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: observation
       tags: fhir_preprocessing
       materialized: table
@@ -252,8 +242,6 @@ models:
 
   - name: fhir_preprocessing__patient
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: patient
       tags: fhir_preprocessing
       materialized: table
@@ -285,8 +273,6 @@ models:
 
   - name: fhir_preprocessing__procedure
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: procedure
       tags: fhir_preprocessing
       materialized: table
@@ -325,8 +311,6 @@ models:
   ## Intermediate
   - name: fhir_preprocessing__int_coverage
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _int_coverage
       tags: fhir_preprocessing
       materialized: table
@@ -334,8 +318,6 @@ models:
 
   - name: fhir_preprocessing__int_coverage_type
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _int_coverage_type
       tags: fhir_preprocessing
       materialized: table
@@ -343,8 +325,6 @@ models:
 
   - name: fhir_preprocessing__int_lab_result
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _int_lab_result
       tags: fhir_preprocessing
       materialized: table
@@ -352,8 +332,6 @@ models:
 
   - name: fhir_preprocessing__int_observation
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _int_observation
       tags: fhir_preprocessing
       materialized: table
@@ -361,8 +339,6 @@ models:
 
   - name: fhir_preprocessing__int_medical_claim_diagnosis
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _int_medical_claim_diagnosis
       tags: fhir_preprocessing
       materialized: table
@@ -371,8 +347,6 @@ models:
 
   - name: fhir_preprocessing__int_medical_claim_eob
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _int_medical_claim_eob
       tags: fhir_preprocessing
       materialized: table
@@ -381,8 +355,6 @@ models:
 
   - name: fhir_preprocessing__int_medical_claim_item
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _int_medical_claim_item
       tags: fhir_preprocessing
       materialized: table
@@ -391,8 +363,6 @@ models:
 
   - name: fhir_preprocessing__int_medical_claim_item_adjudication
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _int_medical_claim_item_adjudication
       tags: fhir_preprocessing
       materialized: table
@@ -401,8 +371,6 @@ models:
 
   - name: fhir_preprocessing__int_medical_claim_item_modifier
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _int_medical_claim_item_modifier
       tags: fhir_preprocessing
       materialized: table
@@ -411,8 +379,6 @@ models:
 
   - name: fhir_preprocessing__int_medical_claim_procedure
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _int_medical_claim_procedure
       tags: fhir_preprocessing
       materialized: table
@@ -421,8 +387,6 @@ models:
 
   - name: fhir_preprocessing__int_medical_claim_supporting_info
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _int_medical_claim_supporting_info
       tags: fhir_preprocessing
       materialized: table
@@ -431,8 +395,6 @@ models:
 
   - name: fhir_preprocessing__int_medical_claim_total
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _int_medical_claim_total
       tags: fhir_preprocessing
       materialized: table
@@ -441,8 +403,6 @@ models:
 
   - name: fhir_preprocessing__int_pharmacy_claim_eob
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _int_pharmacy_claim_eob
       tags: fhir_preprocessing
       materialized: table
@@ -451,8 +411,6 @@ models:
 
   - name: fhir_preprocessing__int_pharmacy_claim_item
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _int_pharmacy_claim_item
       tags: fhir_preprocessing
       materialized: table
@@ -461,8 +419,6 @@ models:
 
   - name: fhir_preprocessing__int_pharmacy_claim_item_adjudication
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _int_pharmacy_claim_item_adjudication
       tags: fhir_preprocessing
       materialized: table
@@ -471,8 +427,6 @@ models:
 
   - name: fhir_preprocessing__int_pharmacy_claim_supporting_info
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _int_pharmacy_claim_supporting_info
       tags: fhir_preprocessing
       materialized: table
@@ -481,8 +435,6 @@ models:
 
   - name: fhir_preprocessing__int_pharmacy_claim_total
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _int_pharmacy_claim_total
       tags: fhir_preprocessing
       materialized: table
@@ -492,8 +444,6 @@ models:
   ## Staging
   - name: fhir_preprocessing__stg_core__condition
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _stg_condition
       tags: fhir_preprocessing
       materialized: view
@@ -501,8 +451,6 @@ models:
 
   - name: fhir_preprocessing__stg_core__eligibility
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _stg_eligibility
       tags: fhir_preprocessing
       materialized: view
@@ -510,8 +458,6 @@ models:
 
   - name: fhir_preprocessing__stg_core__encounter
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _stg_encounter
       tags: fhir_preprocessing
       materialized: view
@@ -519,8 +465,6 @@ models:
 
   - name: fhir_preprocessing__stg_core__lab_result
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _stg_lab_result
       tags: fhir_preprocessing
       materialized: view
@@ -528,8 +472,6 @@ models:
 
   - name: fhir_preprocessing__stg_core__medical_claim
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _stg_medical_claim
       tags: fhir_preprocessing
       materialized: view
@@ -537,8 +479,6 @@ models:
 
   - name: fhir_preprocessing__stg_core__medication
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _stg_medication
       tags: fhir_preprocessing
       materialized: view
@@ -546,8 +486,6 @@ models:
 
   - name: fhir_preprocessing__stg_core__observation
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _stg_observation
       tags: fhir_preprocessing
       materialized: view
@@ -555,8 +493,6 @@ models:
 
   - name: fhir_preprocessing__stg_core__patient
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _stg_patient
       tags: fhir_preprocessing
       materialized: view
@@ -564,8 +500,6 @@ models:
 
   - name: fhir_preprocessing__stg_core__pharmacy_claim
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _stg_pharmacy_claim
       tags: fhir_preprocessing
       materialized: view
@@ -573,8 +507,6 @@ models:
 
   - name: fhir_preprocessing__stg_core__procedure
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_fhir_preprocessing{% else %}fhir_preprocessing{%- endif -%}
       alias: _stg_procedure
       tags: fhir_preprocessing
       materialized: view

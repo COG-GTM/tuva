@@ -4,12 +4,8 @@ models:
     description: |
       The core appointment table contains information related to appointments at a healthcare facility. This table may include canceled, completed,  or scheduled events.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: appointment
       tags: core
-      materialized: table
     columns:
       - name: appointment_id
         description: Unique identifier for the appointment.
@@ -205,12 +201,8 @@ models:
     description: |
       The core condition table contains information related to medical  conditions patients have, including problems, admitting diagnosis codes,  and billable diagnosis codes.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: condition
       tags: core
-      materialized: table
     columns:
       - name: condition_id
         description: Unique identifier for each condition in the table.
@@ -345,12 +337,8 @@ models:
     description: |
       The eligibility table contains information on patient health plan and  supplemental insurance eligibility.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: eligibility
       tags: core
-      materialized: table
     tests:
       - dbt_utils.unique_combination_of_columns:
           arguments:
@@ -565,14 +553,10 @@ models:
     description: |
       The encounter table contains information about patients visits (i.e.  encounters).  This includes acute inpatient, emergency department, office  visits, SNF stays, etc.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: encounter
       tags:
         - core
         - encounters
-      materialized: table
     columns:
       - name: _dbt_source_relation
         description: dbt utils metadata column to indicate the source table from unioning tables together.
@@ -859,12 +843,8 @@ models:
     description: |
       The immunization table contains information on immunizations administered to patients, including the vaccine code, description, and administration date.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: immunization
       tags: core
-      materialized: table
     columns:
       - name: immunization_id
         description: Unique identifier for each immunization.
@@ -998,12 +978,8 @@ models:
     description: |
       The lab result table contains information about lab test results, including the LOINC code and description, units, reference range,  and result.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: lab_result
       tags: core
-      materialized: table
     columns:
       - name: lab_result_id
         description: Unique identifier for each lab result.
@@ -1197,12 +1173,8 @@ models:
     description: |
       The location table contains information on practice and facility locations  where patients receive medical care.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: location
       tags: core
-      materialized: table
     columns:
       - name: location_id
         description: Unique identifier for each location.
@@ -1279,14 +1251,10 @@ models:
     description: |
       The medical claim table contains information on services rendered to patients and billed by the provider to the insurer as claims.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: medical_claim
       tags:
         - core
         - encounters
-      materialized: table
     columns:
       - name: medical_claim_id
         description: Unique identifier for each row in the table.
@@ -1648,12 +1616,8 @@ models:
     description: |
       The medication table contains information on medications ordered and/or administered during a patient encounter.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: medication
       tags: core
-      materialized: table
     columns:
       - name: medication_id
         description: Unique identifier for each medication in the table.
@@ -1796,12 +1760,8 @@ models:
   - name: core__member_months
     description: The core member months tables has one record per member per month in the eligibility source data.  Members without claims are included in this data table.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: member_months
       tags: core
-      materialized: table
     tests:
       - dbt_utils.unique_combination_of_columns:
           arguments:
@@ -1875,12 +1835,8 @@ models:
     description: |
       The observation table contains information on measurements other than lab tests e.g. blood pressure, height, and weight.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: observation
       tags: core
-      materialized: table
     columns:
       - name: observation_id
         description: Unique identifier for each observation in the dataset.
@@ -2009,12 +1965,8 @@ models:
     description: |
       The patient table contains demographic and geographic information on patients.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: patient
       tags: core
-      materialized: table
     columns:
       - name: person_id
         description: Unique identifier for each person in the dataset.
@@ -2154,12 +2106,8 @@ models:
     description: |
       The person id crosswalk table contains all source patient identifiers from  the input layer eligibility (claims) and patient (clinical).
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: person_id_crosswalk
       tags: core
-      materialized: table
     tests:
       - dbt_utils.unique_combination_of_columns:
           arguments:
@@ -2210,12 +2158,8 @@ models:
     description: |
       The pharmacy claim table contains information on prescription drugs that were filled and billed to the insurer.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: pharmacy_claim
       tags: core
-      materialized: table
     columns:
       - name: pharmacy_claim_id
         description: Unique identifier for each row in the table.
@@ -2394,12 +2338,8 @@ models:
     description: |
       The practitioner table contains information on the providers in the  dataset e.g. physicians, physicians assistants, etc.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: practitioner
       tags: core
-      materialized: table
     columns:
       - name: practitioner_id
         description: Unique identifier for the practitioner on record (e.g., ordered medication, performed the procedure, etc).
@@ -2456,12 +2396,8 @@ models:
     description: |
       The procedure table contains information on procedures that were performed on patients in the dataset.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: procedure
       tags: core
-      materialized: table
     columns:
       - name: procedure_id
         description: The unique identifier for the performed procedure.
@@ -2597,231 +2533,147 @@ models:
   - name: core__stg_claims_medical_claim
     description: Staging core medical claims
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_claims_medical_claim
       tags:
         - core
         - core_stage_claims
         - encounters
-      materialized: table
   - name: core__stg_claims_encounter
     description: Staging core claims encounters
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_claims_encounter
       tags:
         - core
         - core_stage_claims
         - encounters
-      materialized: table
   - name: core__stg_claims_location
     description: Staging core claims locations
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_claims_location
       tags:
         - core
         - core_stage_claims
-      materialized: table
   - name: core__stg_claims_member_months
     description: Staging core member months
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_claims_member_months
       tags:
         - core
         - core_stage_claims
-      materialized: view
   - name: core__stg_claims_patient
     description: Staging core claims patients
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_claims_patient
       tags:
         - core
         - core_stage_claims
-      materialized: table
   - name: core__stg_claims_condition
     description: Staging core claims conditions
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_claims_condition
       tags:
         - core
         - core_stage_claims
-      materialized: table
   - name: core__stg_claims_procedure
     description: Staging core claims procedures
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_claims_procedure
       tags:
         - core
         - core_ stage_claims
-      materialized: table
   - name: core__stg_claims_pharmacy_claim
     description: Staging core pharmacy claims
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_claims_pharmacy_claim
       tags:
         - core
         - core_stage_claims
-      materialized: table
   - name: core__stg_claims_eligibility
     description: Staging core eligibility
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_claims_eligibility
       tags:
         - core
         - core_stage_claims
-      materialized: table
   - name: core__stg_claims_practitioner
     description: Staging core providers in the claims dataset
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_claims_practitioner
       tags:
         - core
         - core_stage_claims
-      materialized: table
   - name: core__stg_clinical_appointment
     description: Staging core clinical appointments
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_clinical_appointment
       tags:
         - core
         - core_stage_clinical
-      materialized: view
   - name: core__stg_clinical_condition
     description: Staging core clinical conditions
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_clinical_condition
       tags:
         - core
         - core_stage_clinical
-      materialized: view
   - name: core__stg_clinical_encounter
     description: Staging core clinical encounters
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_clinical_encounter
       tags:
         - core
         - core_stage_clinical
-      materialized: view
   - name: core__stg_clinical_immunization
     description: Staging core clinical immunization
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_clinical_immunization
       tags: core_stage_clinical
-      materialized: view
   - name: core__stg_clinical_lab_result
     description: Staging core clinical lab results
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_clinical_lab_result
       tags:
         - core
         - core_stage_clinical
-      materialized: view
   - name: core__stg_clinical_location
     description: Staging core clinical locations
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_clinical_location
       tags:
         - core
         - core_stage_clinical
-      materialized: view
   - name: core__stg_clinical_medication
     description: Staging core clinical medications
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_clinical_medication
       tags:
         - core
         - core_stage_clinical
-      materialized: view
   - name: core__stg_clinical_observation
     description: Staging core clinical observations
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_clinical_observation
       tags:
         - core
         - core_stage_clinical
-      materialized: view
   - name: core__stg_clinical_patient
     description: Staging core clinical patients
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_clinical_patient
       tags:
         - core
         - core_stage_clinical
-      materialized: view
   - name: core__stg_clinical_practitioner
     description: Staging core clinical providers
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_clinical_practitioner
       tags:
         - core
         - core_stage_clinical
-      materialized: view
   - name: core__stg_clinical_procedure
     description: Staging core clinical procedures
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
-        {% else %}core{%- endif -%}
       alias: _stg_clinical_procedure
       tags:
         - core
         - core_stage_clinical
-      materialized: view

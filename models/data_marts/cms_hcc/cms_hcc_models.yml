@@ -4,8 +4,6 @@ models:
 ## Final
   - name: cms_hcc__patient_risk_factors
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: patient_risk_factors
       tags: cms_hcc
       materialized: table
@@ -57,8 +55,6 @@ models:
 
   - name: cms_hcc__patient_risk_factors_monthly
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: patient_risk_factors_monthly
       tags: cms_hcc
       materialized: table
@@ -104,8 +100,6 @@ models:
 
   - name: cms_hcc__patient_risk_scores
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: patient_risk_scores
       tags: cms_hcc
       materialized: table
@@ -145,8 +139,6 @@ models:
         description: The date the model was run.
   - name: cms_hcc__patient_risk_scores_monthly_by_factor_type
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: patient_risk_scores_monthly_by_factor_type
       tags: cms_hcc
       materialized: table
@@ -200,8 +192,6 @@ models:
         description: The date the model was run.
   - name: cms_hcc__patient_risk_scores_monthly
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: patient_risk_scores_monthly
       tags: cms_hcc
       materialized: table
@@ -255,8 +245,6 @@ models:
 ## Intermediate
   - name: cms_hcc__int_demographic_factors
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: _int_demographic_factors
       tags: cms_hcc
       materialized: table
@@ -319,8 +307,6 @@ models:
 
   - name: cms_hcc__int_disabled_interaction_factors
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: _int_disabled_interaction_factors
       tags: cms_hcc
       materialized: table
@@ -347,8 +333,6 @@ models:
 
   - name: cms_hcc__int_disease_factors
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: _int_disease_factors
       tags: cms_hcc
       materialized: table
@@ -378,8 +362,6 @@ models:
 
   - name: cms_hcc__int_disease_interaction_factors
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: _int_disease_interaction_factors
       tags: cms_hcc
       materialized: table
@@ -410,8 +392,6 @@ models:
 
   - name: cms_hcc__int_eligible_conditions
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: _int_eligible_conditions
       tags: cms_hcc
       materialized: table
@@ -448,8 +428,6 @@ models:
 
   - name: cms_hcc__int_enrollment_interaction_factors
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: _int_enrollment_interaction_factors
       tags: cms_hcc
       materialized: table
@@ -476,8 +454,6 @@ models:
 
   - name: cms_hcc__int_hcc_count_factors
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: _int_hcc_count_factors
       tags: cms_hcc
       materialized: table
@@ -504,8 +480,6 @@ models:
 
   - name: cms_hcc__int_hcc_hierarchy
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: _int_hcc_hierarchy
       tags: cms_hcc
       materialized: table
@@ -527,8 +501,6 @@ models:
 
   - name: cms_hcc__int_hcc_mapping
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: _int_hcc_mapping
       tags: cms_hcc
       materialized: table
@@ -551,8 +523,6 @@ models:
 
   - name: cms_hcc__int_members
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: _int_members
       tags: cms_hcc
       materialized: table
@@ -611,8 +581,6 @@ models:
 
   - name: cms_hcc__int_monthly_collection_dates
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: _int_monthly_collection_dates
       tags: cms_hcc
       materialized: table
@@ -634,8 +602,6 @@ models:
 ## Staging
   - name: cms_hcc__stg_core__condition
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: _stg_condition
       tags: cms_hcc
       materialized: ephemeral
@@ -669,8 +635,6 @@ models:
 
   - name: cms_hcc__stg_core__eligibility
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: _stg_eligibility
       tags: cms_hcc
       materialized: ephemeral
@@ -701,8 +665,6 @@ models:
 
   - name: cms_hcc__stg_core__medical_claim
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: _stg_medical_claim
       tags: cms_hcc
       materialized: ephemeral
@@ -739,8 +701,6 @@ models:
 
   - name: cms_hcc__stg_core__patient
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: _stg_patient
       tags: cms_hcc
       materialized: ephemeral
@@ -761,8 +721,6 @@ models:
         description: The death date of the patient if there is one.
   - name: cms_hcc__stg_core__member_months
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_cms_hcc{% else %}cms_hcc{%- endif -%}
       alias: _stg_member_months
       tags: cms_hcc
       materialized: ephemeral

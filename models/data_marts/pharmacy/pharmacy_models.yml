@@ -5,12 +5,6 @@ models:
 ## Final 
   - name: pharmacy__brand_generic_opportunity
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix', None) != None -%}
-          {{var('tuva_schema_prefix')}}_pharmacy
-        {%- else -%}
-          pharmacy
-        {%- endif -%}
       alias: brand_generic_opportunity
       tags:
         - pharmacy
@@ -59,12 +53,6 @@ models:
 
   - name: pharmacy__generic_available_list
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix', None) != None -%}
-          {{var('tuva_schema_prefix')}}_pharmacy
-        {%- else -%}
-          pharmacy
-        {%- endif -%}
       alias: generic_available_list
       tags:
         - pharmacy
@@ -110,12 +98,6 @@ models:
 
   - name: pharmacy__pharmacy_claim_expanded
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix', None) != None -%}
-          {{var('tuva_schema_prefix')}}_pharmacy
-        {%- else -%}
-          pharmacy
-        {%- endif -%}
       alias: pharmacy_claim_expanded
       tags:
         - pharmacy
@@ -203,12 +185,6 @@ models:
 
   - name: pharmacy__int_brand_with_generic_available
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix', None) != None -%}
-          {{var('tuva_schema_prefix')}}_pharmacy
-        {%- else -%}
-          pharmacy
-        {%- endif -%}
       alias: _int_brand_with_generic_available
       tags:
         - pharmacy
@@ -218,12 +194,6 @@ models:
 
   - name: pharmacy__int_claims_current_cost
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix', None) != None -%}
-          {{var('tuva_schema_prefix')}}_pharmacy
-        {%- else -%}
-          pharmacy
-        {%- endif -%}
       alias: _int_claims_current_cost
       tags:
         - pharmacy
@@ -233,12 +203,6 @@ models:
 
   - name: pharmacy__int_generic_cost
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix', None) != None -%}
-          {{var('tuva_schema_prefix')}}_pharmacy
-        {%- else -%}
-          pharmacy
-        {%- endif -%}
       alias: _int_generic_cost
       tags:
         - pharmacy
@@ -248,12 +212,6 @@ models:
 
   - name: pharmacy__int_generic_cost_by_ndc
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix', None) != None -%}
-          {{var('tuva_schema_prefix')}}_pharmacy
-        {%- else -%}
-          pharmacy
-        {%- endif -%}
       alias: _int_generic_cost_by_ndc
       tags:
         - pharmacy
@@ -265,12 +223,6 @@ models:
 
   - name: pharmacy__stg_pharmacy_claim
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix', None) != None -%}
-          {{var('tuva_schema_prefix')}}_pharmacy
-        {%- else -%}
-          pharmacy
-        {%- endif -%}
       alias: stg_pharmacy_claim
       tags:
         - pharmacy
