@@ -6,9 +6,6 @@ models:
 
   - name: ccsr__long_condition_category
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_ccsr
-        {% else %}ccsr{%- endif -%}
       alias: long_condition_category
       tags:
         - ccsr
@@ -65,9 +62,6 @@ models:
 
   - name: ccsr__singular_condition_category
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_ccsr
-        {% else %}ccsr{%- endif -%}
       alias: singular_condition_category
       tags:
         - ccsr
@@ -115,9 +109,6 @@ models:
     description: >
       This model contains a mapping of individual condition ICD-10-PCS procedure codes to the CCSR's clinically meaningful procedure categories. Each row represents a mapping of an ICD-10 code to a CCSR category. The model is equivalent to the CCSR's Output Option 1 - Vertical File Output.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_ccsr
-        {% else %}ccsr{%- endif -%}
       alias: long_procedure_category
       tags:
         - ccsr
@@ -158,9 +149,6 @@ models:
 
   - name: ccsr__procedure_summary
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_ccsr
-        {% else %}ccsr{%- endif -%}
       alias: procedure_summary
       tags:
         - ccsr
@@ -187,9 +175,6 @@ models:
 
   - name: ccsr__dx_vertical_pivot
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_ccsr
-        {% else %}ccsr{%- endif -%}
       alias: dx_vertical_pivot
       tags:
         - ccsr
@@ -230,9 +215,6 @@ models:
 
   - name: ccsr__procedure_category_map
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_ccsr
-        {% else %}ccsr{%- endif -%}
       alias: procedure_category_map
       tags:
         - ccsr

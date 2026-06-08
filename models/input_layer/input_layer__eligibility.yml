@@ -163,8 +163,6 @@ models:
               - dqi
           expression: "metal_level is null or part_d_raf_type is null"
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_input_layer{% else %}input_layer{%- endif -%}
       tags: input_layer
       materialized: view
     columns:

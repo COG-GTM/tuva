@@ -6,9 +6,6 @@ models:
     description: >
       Condition dimension table for use in analytic data models, includes surrogate key to link condition descriptions in a unified way.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: dim_condition
       tags: semantic_layer
       materialized: table
@@ -17,9 +14,6 @@ models:
     description: >
       Data source dimension table for use in analytic data models.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: dim_data_source
       tags: semantic_layer
       materialized: table
@@ -28,9 +22,6 @@ models:
     description: >
       Date dimension for use in analytic data models, provides all dates along with categorizations like year month, month, quarter, and year, day of week, etc.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: dim_date
       tags: semantic_layer
       materialized: table
@@ -39,9 +30,6 @@ models:
     description: >
       Unique encounter group dimension for use in analytic data models.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: dim_encounter_group
       tags: semantic_layer
       materialized: table
@@ -57,9 +45,6 @@ models:
     description: >
       Unique primary provider dimension for use in analytic data models.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: dim_encounter_provider
       tags: semantic_layer
       materialized: table
@@ -75,9 +60,6 @@ models:
     description: >
       Unique encounter type dimension for use in analytic data models.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: dim_encounter_type
       tags: semantic_layer
       materialized: table
@@ -93,9 +75,6 @@ models:
     description: >
       Member dimension information at the member month grain, can be joined via member_month_sk to most fact tables for member attributes that change over time.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: dim_member_months
       tags: semantic_layer
       materialized: table
@@ -104,9 +83,6 @@ models:
     description: >
       Member dimension for use in analytics data models, provides the current value of member attributes and attributes that do not change over time.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: dim_member
       tags: semantic_layer
       materialized: table
@@ -122,9 +98,6 @@ models:
     description: >
       Unique service categories dimension for use in analytic data models.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: dim_service_category
       tags: semantic_layer
       materialized: table
@@ -140,9 +113,6 @@ models:
     description: >
       Admission and readmissions classifications for all inpatient encounters.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: fact_admissions
       tags: semantic_layer
       materialized: table
@@ -151,9 +121,6 @@ models:
     description: >
       Claim line level fact for use in Power BI data models.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: fact_claims
       tags: semantic_layer
       materialized: table
@@ -169,9 +136,6 @@ models:
     description: >
       ED classifications for all ED encounters.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: fact_ed_visits
       tags: semantic_layer
       materialized: table
@@ -180,9 +144,6 @@ models:
     description: >
       Bridge table for encounters and service categories for use in Power BI data models.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: fact_encounter_service_bridge
       tags: semantic_layer
       materialized: table
@@ -191,9 +152,6 @@ models:
     description: >
       Encounter level fact for use in Power BI data models.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: fact_encounters
       tags: semantic_layer
       materialized: table
@@ -209,9 +167,6 @@ models:
     description: >
       Claims expected values fact table for use in Power BI data models.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: fact_expected_values
       tags: semantic_layer
       materialized: table
@@ -220,9 +175,6 @@ models:
     description: >
       HCC gaps for use in analytic data models.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: fact_hcc_gaps
       tags: semantic_layer
       materialized: table
@@ -231,9 +183,6 @@ models:
     description: >
       Member to condition bridge table for use in Power BI data models.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: fact_member_condition_bridge
       tags: semantic_layer
       materialized: table
@@ -242,9 +191,6 @@ models:
     description: >
       Member months fact for use in Power BI data models.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: fact_member_months
       tags: semantic_layer
       materialized: table
@@ -263,9 +209,6 @@ models:
     description: >
       Quality measure level fact for use in analytic data models.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: fact_quality_measures
       tags: semantic_layer
       materialized: table
@@ -274,9 +217,6 @@ models:
     description: >
       Pharmacy claim data from core object.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: fact_pharmacy_claims
       tags: semantic_layer
       materialized: table
@@ -285,9 +225,6 @@ models:
     description: >
       Risk factors included in risk score calculation with coefficients.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: fact_risk_factors
       tags: semantic_layer
       materialized: table
@@ -296,9 +233,6 @@ models:
     description: >
       HCC risk scores by patient, model version and payment year.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: fact_risk_scores
       tags: semantic_layer
       materialized: table
@@ -306,9 +240,6 @@ models:
   - name: semantic_layer__stg_ahrq_measures__pqi_summary
     description: Staging table for AHRQ PQI measure definitions.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: semantic_layer__stg_ahrq_measures__pqi_summary
       tags:
         - semantic_layer
@@ -317,9 +248,6 @@ models:
   - name: semantic_layer__stg_chronic_conditions__tuva_chronic_conditions_long
     description: Staging table for Tuva chronic conditions long format.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: semantic_layer__stg_chronic_conditions__tuva_chronic_conditions_long
       tags:
         - semantic_layer
@@ -328,9 +256,6 @@ models:
   - name: semantic_layer__stg_cms_hcc__patient_risk_factors
     description: Staging table for monthly patient risk factors.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: semantic_layer__stg_cms_hcc__patient_risk_factors
       tags:
         - semantic_layer
@@ -339,9 +264,6 @@ models:
   - name: semantic_layer__stg_cms_hcc__patient_risk_scores_monthly
     description: Staging table for monthly patient risk scores from CMS HCC model.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: semantic_layer__stg_cms_hcc__patient_risk_scores_monthly
       tags:
         - semantic_layer
@@ -350,9 +272,6 @@ models:
   - name: semantic_layer__stg_cms_hcc__patient_risk_scores
     description: Staging table for monthly patient risk scores from CMS HCC model.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: semantic_layer__stg_cms_hcc__patient_risk_scores
       tags:
         - semantic_layer
@@ -361,9 +280,6 @@ models:
   - name: semantic_layer__stg_core__eligibility
     description: Staging table for core eligibility data.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: semantic_layer__stg_core__eligibility
       tags:
         - semantic_layer
@@ -372,9 +288,6 @@ models:
   - name: semantic_layer__stg_core__encounter
     description: Staging table with data from core entounter object.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: semantic_layer__stg_core__encounter
       tags:
         - semantic_layer
@@ -383,9 +296,6 @@ models:
   - name: semantic_layer__stg_core__medical_claim
     description: Staging table for core medical claim object.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: semantic_layer__stg_core__medical_claim
       tags:
         - semantic_layer
@@ -394,9 +304,6 @@ models:
   - name: semantic_layer__stg_core__member_months
     description: Staging table for core member month object.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: semantic_layer__stg_core__member_months
       tags:
         - semantic_layer
@@ -405,9 +312,6 @@ models:
   - name: semantic_layer__stg_core__patient
     description: Staging table for core patient object.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: semantic_layer__stg_core__patient
       tags:
         - semantic_layer
@@ -416,9 +320,6 @@ models:
   - name: semantic_layer__stg_core__pharmacy_claim
     description: Staging table for core pharmacy claim object
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: semantic_layer__stg_core__pharmacy_claim
       tags:
         - semantic_layer
@@ -427,9 +328,6 @@ models:
   - name: semantic_layer__stg_core__practitioner
     description: Staging table for core practitioner object
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: semantic_layer__stg_core__practitioner
       tags:
         - semantic_layer
@@ -438,9 +336,6 @@ models:
   - name: semantic_layer__stg_ed_classification__summary
     description: Staging table for ed classification object
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: semantic_layer__stg_ed_classification__summary
       tags:
         - semantic_layer
@@ -449,9 +344,6 @@ models:
   - name: semantic_layer__stg_financial_pmpm__pmpm_prep
     description: Staging table for financial pmpm object
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: semantic_layer__stg_financial_pmpm__pmpm_prep
       tags:
         - semantic_layer
@@ -460,9 +352,6 @@ models:
   - name: semantic_layer__stg_hcc_suspecting__list_rollup
     description: Staging table for hcc suspecting object
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: semantic_layer__stg_hcc_suspecting__list_rollup
       tags:
         - semantic_layer
@@ -471,9 +360,6 @@ models:
   - name: semantic_layer__stg_pharmacy__pharmacy_claim_expanded
     description: Staging table for expanded pharmacy claim data
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: semantic_layer__stg_pharmacy__pharmacy_claim_expanded
       tags:
         - semantic_layer
@@ -482,9 +368,6 @@ models:
   - name: semantic_layer__stg_quality_measures__summary_long
     description: Staging table for quality measure summary object
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: semantic_layer__stg_quality_measures__summary_long
       tags:
         - semantic_layer
@@ -493,9 +376,6 @@ models:
   - name: semantic_layer__stg_readmissions__encounter_augmented
     description: Staging table for readmissions encounter object
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: semantic_layer__stg_readmissions__encounter_augmented
       tags:
         - semantic_layer
@@ -504,9 +384,6 @@ models:
   - name: semantic_layer__stg_readmissions__readmission_summary
     description: Staging table for readmissions summary object
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: semantic_layer__stg_readmissions__readmission_summary
       tags:
         - semantic_layer
@@ -515,9 +392,6 @@ models:
   - name: semantic_layer__stg_reference_data__calendar
     description: Staging table for calendar object
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_semantic_layer
-        {% else %}semantic_layer{%- endif -%}
       alias: semantic_layer__stg_reference_data__calendar
       tags:
         - semantic_layer

@@ -4,8 +4,6 @@ models:
 ## Final
   - name: hcc_suspecting__list
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_hcc_suspecting{% else %}hcc_suspecting{%- endif -%}
       alias: list
       tags: hcc_suspecting
       materialized: table
@@ -40,8 +38,6 @@ models:
 
   - name: hcc_suspecting__list_all
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_hcc_suspecting{% else %}hcc_suspecting{%- endif -%}
       alias: list_all
       tags: hcc_suspecting
       materialized: table
@@ -82,8 +78,6 @@ models:
 
   - name: hcc_suspecting__list_rollup
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_hcc_suspecting{% else %}hcc_suspecting{%- endif -%}
       alias: list_rollup
       tags: hcc_suspecting
       materialized: table
@@ -114,8 +108,6 @@ models:
 
   - name: hcc_suspecting__summary
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_hcc_suspecting{% else %}hcc_suspecting{%- endif -%}
       alias: summary
       tags: hcc_suspecting
       materialized: table
@@ -141,8 +133,6 @@ models:
   ## Intermediate
   - name: hcc_suspecting__int_all_conditions
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_hcc_suspecting{% else %}hcc_suspecting{%- endif -%}
       alias: _int_all_conditions
       tags: hcc_suspecting
       materialized: table
@@ -170,8 +160,6 @@ models:
 
   - name: hcc_suspecting__int_all_medications
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_hcc_suspecting{% else %}hcc_suspecting{%- endif -%}
       alias: _int_all_medications
       tags: hcc_suspecting
       materialized: table
@@ -193,8 +181,6 @@ models:
 
   - name: hcc_suspecting__int_comorbidity_suspects
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_hcc_suspecting{% else %}hcc_suspecting{%- endif -%}
       alias: _int_comorbidity_suspects
       tags: hcc_suspecting
       materialized: table
@@ -242,8 +228,6 @@ models:
 
   - name: hcc_suspecting__int_lab_suspects
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_hcc_suspecting{% else %}hcc_suspecting{%- endif -%}
       alias: _int_lab_suspects
       tags: hcc_suspecting
       materialized: table
@@ -286,8 +270,6 @@ models:
 
   - name: hcc_suspecting__int_medication_suspects
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_hcc_suspecting{% else %}hcc_suspecting{%- endif -%}
       alias: _int_medication_suspects
       tags: hcc_suspecting
       materialized: table
@@ -328,8 +310,6 @@ models:
 
   - name: hcc_suspecting__int_observation_suspects
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_hcc_suspecting{% else %}hcc_suspecting{%- endif -%}
       alias: _int_observation_suspects
       tags: hcc_suspecting
       materialized: table
@@ -376,8 +356,6 @@ models:
 
   - name: hcc_suspecting__int_patient_hcc_history
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_hcc_suspecting{% else %}hcc_suspecting{%- endif -%}
       alias: _int_patient_hcc_history
       tags: hcc_suspecting
       materialized: table
@@ -432,8 +410,6 @@ models:
 
   - name: hcc_suspecting__int_prep_conditions
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_hcc_suspecting{% else %}hcc_suspecting{%- endif -%}
       alias: _int_prep_conditions
       tags: hcc_suspecting
       materialized: table
@@ -475,8 +451,6 @@ models:
 
   - name: hcc_suspecting__int_prep_egfr_labs
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_hcc_suspecting{% else %}hcc_suspecting{%- endif -%}
       alias: _int_prep_egfr_labs
       tags: hcc_suspecting
       materialized: table
@@ -501,8 +475,6 @@ models:
   ## Staging
   - name: hcc_suspecting__stg_core__condition
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_hcc_suspecting{% else %}hcc_suspecting{%- endif -%}
       alias: _stg_condition
       tags: hcc_suspecting
       materialized: view
@@ -518,8 +490,6 @@ models:
 
   - name: hcc_suspecting__stg_core__lab_result
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_hcc_suspecting{% else %}hcc_suspecting{%- endif -%}
       alias: _stg_lab_result
       tags: hcc_suspecting
       materialized: view
@@ -536,8 +506,6 @@ models:
 
   - name: hcc_suspecting__stg_core__medication
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_hcc_suspecting{% else %}hcc_suspecting{%- endif -%}
       alias: _stg_medication
       tags: hcc_suspecting
       materialized: view
@@ -553,8 +521,6 @@ models:
 
   - name: hcc_suspecting__stg_core__observation
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_hcc_suspecting{% else %}hcc_suspecting{%- endif -%}
       alias: _stg_observation
       tags: hcc_suspecting
       materialized: view
@@ -569,8 +535,6 @@ models:
 
   - name: hcc_suspecting__stg_core__patient
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_hcc_suspecting{% else %}hcc_suspecting{%- endif -%}
       alias: _stg_patient
       tags: hcc_suspecting
       materialized: view
@@ -583,8 +547,6 @@ models:
 
   - name: hcc_suspecting__stg_core__pharmacy_claim
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_hcc_suspecting{% else %}hcc_suspecting{%- endif -%}
       alias: _stg_pharmacy_claim
       tags: hcc_suspecting
       materialized: view

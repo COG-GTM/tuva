@@ -8,11 +8,80 @@ profile: default
 models:
   ## see docs: https://docs.elementary-data.com/
   elementary:
-    ## elementary models will be created in the schema '<your_schema>_elementary'
-    +schema: |
-      {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_elementary{% else %}elementary{%- endif -%}
+    ## elementary models will be created in the schema '<your_schema>_elementary'.
+    ## The tuva_schema_prefix (when set) is applied centrally in
+    ## macros/generate_schema_name.sql, so only the bare schema is declared here.
+    +schema: elementary
     ## To disable elementary for dev, uncomment this:
     # enabled: "{{ target.name in ['prod','analytics'] }}"
+
+  the_tuva_project:
+    ## Folder-level defaults. Schema is declared bare; the tuva_schema_prefix
+    ## (when set) is applied centrally in macros/generate_schema_name.sql.
+    ## Materialization follows the stage convention:
+    ##   ephemeral/view (staging) -> view (intermediate) -> table (final)
+    input_layer:
+      +schema: input_layer
+    normalization:
+      +schema: claims_preprocessing
+      staging:
+        +materialized: ephemeral
+      intermediate:
+        +materialized: view
+      final:
+        +materialized: table
+    claims_preprocessing:
+      +schema: claims_preprocessing
+      encounters:
+        staging:
+          +materialized: view
+        intermediate:
+          +materialized: view
+        final:
+          +materialized: table
+    core:
+      +schema: core
+      staging:
+        +materialized: view
+      final:
+        +materialized: table
+    data_quality:
+      +schema: data_quality
+    data_marts:
+      ahrq_measures:
+        +schema: ahrq_measures
+      benchmarks:
+        +schema: benchmarks
+      ccsr:
+        +schema: ccsr
+      chronic_conditions:
+        +schema: chronic_conditions
+      clinical_concept_library:
+        +schema: clinical_concept_library
+      cms_hcc:
+        +schema: cms_hcc
+      ed_classification:
+        +schema: ed_classification
+      fhir_preprocessing:
+        +schema: fhir_preprocessing
+      financial_pmpm:
+        +schema: financial_pmpm
+      hcc_recapture:
+        +schema: hcc_recapture
+      hcc_suspecting:
+        +schema: hcc_suspecting
+      normalize:
+        +schema: normalize
+      pharmacy:
+        +schema: pharmacy
+      provider_attribution:
+        +schema: tuva_provider_attribution
+      quality_measures:
+        +schema: quality_measures
+      readmissions:
+        +schema: readmissions
+      semantic_layer:
+        +schema: semantic_layer
 
 flags:
   require_explicit_package_overrides_for_builtin_materializations: false # Needed for Elementary

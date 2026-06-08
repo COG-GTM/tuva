@@ -5,9 +5,6 @@ models:
 #### Final
   - name: financial_pmpm__pmpm_prep
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_financial_pmpm
-        {% else %}financial_pmpm{%- endif -%}
       alias: pmpm_prep
       tags:
         - financial_pmpm
@@ -172,9 +169,6 @@ models:
 
   - name: financial_pmpm__pmpm_payer_plan
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_financial_pmpm
-        {% else %}financial_pmpm{%- endif -%}
       alias: pmpm_payer_plan
       tags:
         - financial_pmpm
@@ -300,9 +294,6 @@ models:
 
   - name: financial_pmpm__pmpm_payer
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_financial_pmpm
-        {% else %}financial_pmpm{%- endif -%}
       alias: pmpm_payer
       tags:
         - financial_pmpm
@@ -440,9 +431,6 @@ models:
 
   - name: financial_pmpm__patient_spend_with_service_categories
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_financial_pmpm
-        {% else %}financial_pmpm{%- endif -%}
       alias: _int_patient_spend_with_service_categories
       tags:
         - financial_pmpm
@@ -452,9 +440,6 @@ models:
 
   - name: financial_pmpm__service_category_1_allowed_pivot
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_financial_pmpm
-        {% else %}financial_pmpm{%- endif -%}
       alias: _int_service_category_1_allowed_pivot
       tags:
         - financial_pmpm
@@ -464,9 +449,6 @@ models:
 
   - name: financial_pmpm__service_category_2_allowed_pivot
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_financial_pmpm
-        {% else %}financial_pmpm{%- endif -%}
       alias: _int_service_category_2_allowed_pivot
       tags:
         - financial_pmpm
@@ -476,9 +458,6 @@ models:
 
   - name: financial_pmpm__service_category_1_paid_pivot
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_financial_pmpm
-        {% else %}financial_pmpm{%- endif -%}
       alias: _int_service_category_1_paid_pivot
       tags:
         - financial_pmpm
@@ -488,9 +467,6 @@ models:
 
   - name: financial_pmpm__service_category_2_paid_pivot
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_financial_pmpm
-        {% else %}financial_pmpm{%- endif -%}
       alias: _int_service_category_2_paid_pivot
       tags:
         - financial_pmpm

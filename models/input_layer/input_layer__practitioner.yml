@@ -5,8 +5,6 @@ models:
       The practitioner table contains information on the providers in the dataset e.g. physicians, physicians assistants, etc.
     mapping_instructions: ''
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_input_layer{% else %}input_layer{%- endif -%}
       tags: input_layer
       materialized: view
     columns:

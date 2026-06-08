@@ -8,9 +8,6 @@ models:
       relevant fields for each value set member taken from the clnical_concepts
       and coding_systems tables.
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_clinical_concept_library
-        {% else %}clinical_concept_library{%- endif -%}
       alias: value_set_member_relevant_fields
       tags:
         - clinical_concept_library

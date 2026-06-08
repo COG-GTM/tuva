@@ -4,9 +4,6 @@ models:
 ## Final
   - name: chronic_conditions__cms_chronic_conditions_wide
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_chronic_conditions
-        {% else %}chronic_conditions{%- endif -%}
       alias: cms_chronic_conditions_wide
       tags:
         - cms_chronic_conditions
@@ -251,9 +248,6 @@ models:
 
   - name: chronic_conditions__cms_chronic_conditions_long
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_chronic_conditions
-        {% else %}chronic_conditions{%- endif -%}
       alias: cms_chronic_conditions_long
       tags:
         - cms_chronic_conditions
@@ -322,9 +316,6 @@ models:
 ## Intermediate
   - name: chronic_conditions__cms_chronic_conditions_all
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_chronic_conditions
-        {% else %}chronic_conditions{%- endif -%}
       alias: _int_cms_chronic_condition_all
       tags:
         - cms_chronic_conditions
@@ -362,9 +353,6 @@ models:
 
   - name: chronic_conditions__cms_chronic_conditions_hiv_aids
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_chronic_conditions
-        {% else %}chronic_conditions{%- endif -%}
       alias: _int_cms_chronic_condition_hiv_aids
       tags:
         - cms_chronic_conditions
@@ -405,9 +393,6 @@ models:
 
   - name: chronic_conditions__cms_chronic_conditions_oud
     config:
-      schema: |
-        {%- if var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_chronic_conditions
-        {% else %}chronic_conditions{%- endif -%}
       alias: _int_cms_chronic_condition_oud
       tags:
         - cms_chronic_conditions
