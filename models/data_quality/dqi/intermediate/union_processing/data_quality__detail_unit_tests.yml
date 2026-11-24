@@ -1,0 +1,36 @@
+version: 2
+
+unit_tests:
+  - name: test_data_quality_claims_detail_summary_sk_null_keys
+    description: "Every union row keeps exactly one summary_sk, including rows with NULL keys and duplicate rows"
+    model: data_quality__data_quality_claims_detail
+    given:
+      - input: ref('data_quality__data_quality_claims_detail_union')
+        rows:
+          - {data_source: null, table_name: "t1", claim_type: null, field_name: "f1", field_value: "a"}
+          - {data_source: null, table_name: "t1", claim_type: null, field_name: "f1", field_value: "a"}
+          - {data_source: null, table_name: "t2", claim_type: "professional", field_name: "f1", field_value: "b"}
+          - {data_source: null, table_name: "t3", claim_type: null, field_name: null, field_value: "c"}
+    expect:
+      rows:
+        - {table_name: "t1", field_value: "a", summary_sk: 1}
+        - {table_name: "t1", field_value: "a", summary_sk: 1}
+        - {table_name: "t2", field_value: "b", summary_sk: 2}
+        - {table_name: "t3", field_value: "c", summary_sk: 3}
+
+  - name: test_data_quality_clinical_detail_summary_sk_null_keys
+    description: "Every union row keeps exactly one summary_sk, including rows with NULL keys and duplicate rows"
+    model: data_quality__data_quality_clinical_detail
+    given:
+      - input: ref('data_quality__data_quality_clinical_detail_union')
+        rows:
+          - {data_source: null, table_name: "t1", field_name: "f1", field_value: "a"}
+          - {data_source: null, table_name: "t1", field_name: "f1", field_value: "a"}
+          - {data_source: null, table_name: "t2", field_name: "f1", field_value: "b"}
+          - {data_source: null, table_name: "t3", field_name: null, field_value: "c"}
+    expect:
+      rows:
+        - {table_name: "t1", field_value: "a", summary_sk: 100001}
+        - {table_name: "t1", field_value: "a", summary_sk: 100001}
+        - {table_name: "t2", field_value: "b", summary_sk: 100002}
+        - {table_name: "t3", field_value: "c", summary_sk: 100003}
