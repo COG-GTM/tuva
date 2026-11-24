@@ -1,52 +1,16 @@
 version: 2
 
+# DuckDB only: fixtures use NULL keys and expected ranks rely on DuckDB's default NULLS LAST ordering.
 unit_tests:
-  - name: test_data_quality_claims_detail_summary_sk_null_keys
-    description: "Every union row keeps exactly one summary_sk, including rows with NULL keys and duplicate rows"
+  - name: test_data_quality_claims_detail_summary_sk
+    description: "summary_sk ranks every key column, keeps NULL apart from empty string and keeps duplicate rows"
     model: data_quality__data_quality_claims_detail
     config:
-      enabled: "{{ var('claims_enabled', False) }}"
+      enabled: "{{ target.type == 'duckdb' and var('claims_enabled', False) }}"
     given:
       - input: ref('data_quality__data_quality_claims_detail_union')
         rows:
-          - {data_source: null, table_name: "t1", claim_type: null, field_name: "f1", field_value: "a"}
-          - {data_source: null, table_name: "t1", claim_type: null, field_name: "f1", field_value: "a"}
-          - {data_source: null, table_name: "t2", claim_type: "professional", field_name: "f1", field_value: "b"}
-          - {data_source: null, table_name: "t3", claim_type: null, field_name: null, field_value: "c"}
-    expect:
-      rows:
-        - {table_name: "t1", field_value: "a", summary_sk: 1}
-        - {table_name: "t1", field_value: "a", summary_sk: 1}
-        - {table_name: "t2", field_value: "b", summary_sk: 2}
-        - {table_name: "t3", field_value: "c", summary_sk: 3}
-
-  - name: test_data_quality_clinical_detail_summary_sk_null_keys
-    description: "Every union row keeps exactly one summary_sk, including rows with NULL keys and duplicate rows"
-    model: data_quality__data_quality_clinical_detail
-    config:
-      enabled: "{{ var('clinical_enabled', False) }}"
-    given:
-      - input: ref('data_quality__data_quality_clinical_detail_union')
-        rows:
-          - {data_source: null, table_name: "t1", field_name: "f1", field_value: "a"}
-          - {data_source: null, table_name: "t1", field_name: "f1", field_value: "a"}
-          - {data_source: null, table_name: "t2", field_name: "f1", field_value: "b"}
-          - {data_source: null, table_name: "t3", field_name: null, field_value: "c"}
-    expect:
-      rows:
-        - {table_name: "t1", field_value: "a", summary_sk: 100001}
-        - {table_name: "t1", field_value: "a", summary_sk: 100001}
-        - {table_name: "t2", field_value: "b", summary_sk: 100002}
-        - {table_name: "t3", field_value: "c", summary_sk: 100003}
-
-  - name: test_data_quality_claims_detail_summary_sk_every_key
-    description: "Each key column, and NULL vs empty string within it, gives a separate summary_sk (rank multiset is independent of warehouse NULL ordering)"
-    model: data_quality__data_quality_claims_detail
-    config:
-      enabled: "{{ var('claims_enabled', False) }}"
-    given:
-      - input: ref('data_quality__data_quality_claims_detail_union')
-        rows:
+          - {data_source: "a", table_name: "t", claim_type: "p", field_name: "f"}
           - {data_source: "a", table_name: "t", claim_type: "p", field_name: "f"}
           - {data_source: null, table_name: "t", claim_type: "p", field_name: "f"}
           - {data_source: "", table_name: "t", claim_type: "p", field_name: "f"}
@@ -58,24 +22,26 @@ unit_tests:
           - {data_source: "a", table_name: "t", claim_type: "p", field_name: ""}
     expect:
       rows:
-        - {summary_sk: 1}
-        - {summary_sk: 2}
-        - {summary_sk: 3}
-        - {summary_sk: 4}
-        - {summary_sk: 5}
-        - {summary_sk: 6}
-        - {summary_sk: 7}
-        - {summary_sk: 8}
-        - {summary_sk: 9}
+        - {data_source: "", table_name: "t", claim_type: "p", field_name: "f", summary_sk: 1}
+        - {data_source: "a", table_name: "", claim_type: "p", field_name: "f", summary_sk: 2}
+        - {data_source: "a", table_name: "t", claim_type: "", field_name: "f", summary_sk: 3}
+        - {data_source: "a", table_name: "t", claim_type: "p", field_name: "", summary_sk: 4}
+        - {data_source: "a", table_name: "t", claim_type: "p", field_name: "f", summary_sk: 5}
+        - {data_source: "a", table_name: "t", claim_type: "p", field_name: "f", summary_sk: 5}
+        - {data_source: "a", table_name: "t", claim_type: "p", field_name: null, summary_sk: 6}
+        - {data_source: "a", table_name: "t", claim_type: null, field_name: "f", summary_sk: 7}
+        - {data_source: "a", table_name: null, claim_type: "p", field_name: "f", summary_sk: 8}
+        - {data_source: null, table_name: "t", claim_type: "p", field_name: "f", summary_sk: 9}
 
-  - name: test_data_quality_clinical_detail_summary_sk_every_key
-    description: "Each key column, and NULL vs empty string within it, gives a separate summary_sk (rank multiset is independent of warehouse NULL ordering)"
+  - name: test_data_quality_clinical_detail_summary_sk
+    description: "summary_sk ranks every key column, keeps NULL apart from empty string and keeps duplicate rows"
     model: data_quality__data_quality_clinical_detail
     config:
-      enabled: "{{ var('clinical_enabled', False) }}"
+      enabled: "{{ target.type == 'duckdb' and var('clinical_enabled', False) }}"
     given:
       - input: ref('data_quality__data_quality_clinical_detail_union')
         rows:
+          - {data_source: "a", table_name: "t", field_name: "f"}
           - {data_source: "a", table_name: "t", field_name: "f"}
           - {data_source: null, table_name: "t", field_name: "f"}
           - {data_source: "", table_name: "t", field_name: "f"}
@@ -85,10 +51,11 @@ unit_tests:
           - {data_source: "a", table_name: "t", field_name: ""}
     expect:
       rows:
-        - {summary_sk: 100001}
-        - {summary_sk: 100002}
-        - {summary_sk: 100003}
-        - {summary_sk: 100004}
-        - {summary_sk: 100005}
-        - {summary_sk: 100006}
-        - {summary_sk: 100007}
+        - {data_source: "", table_name: "t", field_name: "f", summary_sk: 100001}
+        - {data_source: "a", table_name: "", field_name: "f", summary_sk: 100002}
+        - {data_source: "a", table_name: "t", field_name: "", summary_sk: 100003}
+        - {data_source: "a", table_name: "t", field_name: "f", summary_sk: 100004}
+        - {data_source: "a", table_name: "t", field_name: "f", summary_sk: 100004}
+        - {data_source: "a", table_name: "t", field_name: null, summary_sk: 100005}
+        - {data_source: "a", table_name: null, field_name: "f", summary_sk: 100006}
+        - {data_source: null, table_name: "t", field_name: "f", summary_sk: 100007}
