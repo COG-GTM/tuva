@@ -1,0 +1,61 @@
+version: 2
+
+# DuckDB only: fixtures use NULL keys and expected ranks rely on DuckDB's default NULLS LAST ordering.
+unit_tests:
+  - name: test_data_quality_claims_detail_summary_sk
+    description: "summary_sk ranks every key column, keeps NULL apart from empty string and keeps duplicate rows"
+    model: data_quality__data_quality_claims_detail
+    config:
+      enabled: "{{ target.type == 'duckdb' and var('claims_enabled', False) }}"
+    given:
+      - input: ref('data_quality__data_quality_claims_detail_union')
+        rows:
+          - {data_source: "a", table_name: "t", claim_type: "p", field_name: "f"}
+          - {data_source: "a", table_name: "t", claim_type: "p", field_name: "f"}
+          - {data_source: null, table_name: "t", claim_type: "p", field_name: "f"}
+          - {data_source: "", table_name: "t", claim_type: "p", field_name: "f"}
+          - {data_source: "a", table_name: null, claim_type: "p", field_name: "f"}
+          - {data_source: "a", table_name: "", claim_type: "p", field_name: "f"}
+          - {data_source: "a", table_name: "t", claim_type: null, field_name: "f"}
+          - {data_source: "a", table_name: "t", claim_type: "", field_name: "f"}
+          - {data_source: "a", table_name: "t", claim_type: "p", field_name: null}
+          - {data_source: "a", table_name: "t", claim_type: "p", field_name: ""}
+    expect:
+      rows:
+        - {data_source: "", table_name: "t", claim_type: "p", field_name: "f", summary_sk: 1}
+        - {data_source: "a", table_name: "", claim_type: "p", field_name: "f", summary_sk: 2}
+        - {data_source: "a", table_name: "t", claim_type: "", field_name: "f", summary_sk: 3}
+        - {data_source: "a", table_name: "t", claim_type: "p", field_name: "", summary_sk: 4}
+        - {data_source: "a", table_name: "t", claim_type: "p", field_name: "f", summary_sk: 5}
+        - {data_source: "a", table_name: "t", claim_type: "p", field_name: "f", summary_sk: 5}
+        - {data_source: "a", table_name: "t", claim_type: "p", field_name: null, summary_sk: 6}
+        - {data_source: "a", table_name: "t", claim_type: null, field_name: "f", summary_sk: 7}
+        - {data_source: "a", table_name: null, claim_type: "p", field_name: "f", summary_sk: 8}
+        - {data_source: null, table_name: "t", claim_type: "p", field_name: "f", summary_sk: 9}
+
+  - name: test_data_quality_clinical_detail_summary_sk
+    description: "summary_sk ranks every key column, keeps NULL apart from empty string and keeps duplicate rows"
+    model: data_quality__data_quality_clinical_detail
+    config:
+      enabled: "{{ target.type == 'duckdb' and var('clinical_enabled', False) }}"
+    given:
+      - input: ref('data_quality__data_quality_clinical_detail_union')
+        rows:
+          - {data_source: "a", table_name: "t", field_name: "f"}
+          - {data_source: "a", table_name: "t", field_name: "f"}
+          - {data_source: null, table_name: "t", field_name: "f"}
+          - {data_source: "", table_name: "t", field_name: "f"}
+          - {data_source: "a", table_name: null, field_name: "f"}
+          - {data_source: "a", table_name: "", field_name: "f"}
+          - {data_source: "a", table_name: "t", field_name: null}
+          - {data_source: "a", table_name: "t", field_name: ""}
+    expect:
+      rows:
+        - {data_source: "", table_name: "t", field_name: "f", summary_sk: 100001}
+        - {data_source: "a", table_name: "", field_name: "f", summary_sk: 100002}
+        - {data_source: "a", table_name: "t", field_name: "", summary_sk: 100003}
+        - {data_source: "a", table_name: "t", field_name: "f", summary_sk: 100004}
+        - {data_source: "a", table_name: "t", field_name: "f", summary_sk: 100004}
+        - {data_source: "a", table_name: "t", field_name: null, summary_sk: 100005}
+        - {data_source: "a", table_name: null, field_name: "f", summary_sk: 100006}
+        - {data_source: null, table_name: "t", field_name: "f", summary_sk: 100007}
