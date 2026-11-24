@@ -4,6 +4,8 @@ unit_tests:
   - name: test_data_quality_claims_detail_summary_sk_null_keys
     description: "Every union row keeps exactly one summary_sk, including rows with NULL keys and duplicate rows"
     model: data_quality__data_quality_claims_detail
+    config:
+      enabled: "{{ var('claims_enabled', False) }}"
     given:
       - input: ref('data_quality__data_quality_claims_detail_union')
         rows:
@@ -21,6 +23,8 @@ unit_tests:
   - name: test_data_quality_clinical_detail_summary_sk_null_keys
     description: "Every union row keeps exactly one summary_sk, including rows with NULL keys and duplicate rows"
     model: data_quality__data_quality_clinical_detail
+    config:
+      enabled: "{{ var('clinical_enabled', False) }}"
     given:
       - input: ref('data_quality__data_quality_clinical_detail_union')
         rows:
